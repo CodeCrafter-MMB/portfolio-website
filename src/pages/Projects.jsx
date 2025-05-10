@@ -3,7 +3,7 @@ import image1 from "../assets/port1.png";
 import image3 from "../assets/port3.png";
 import image2 from "../assets/port2.png";
 import { Link } from "react-router-dom";
-import { Search, Filter, ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
 const projectData = [
   {
@@ -44,20 +44,7 @@ const projectData = [
   },
 ];
 
-const categories = ["All Projects", "Web Application", "Mobile Application"];
-
 const Projects = () => {
-  const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("All Projects");
-
-  const filteredProjects = projectData.filter((project) => {
-    const matchTitle = project.title
-      .toLowerCase()
-      .includes(search.toLowerCase());
-    const matchType = filter === "All Projects" || project.type === filter;
-    return matchTitle && matchType;
-  });
-
   return (
     <section className="min-h-screen py-8 md:py-16">
       <div className="container mx-auto px-4">
@@ -74,7 +61,7 @@ const Projects = () => {
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {filteredProjects.map((project) => (
+            {projectData.map((project) => (
               <div
                 key={project.id}
                 className="bg-card rounded-xl overflow-hidden border border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02]"
