@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Moon, Sun, Menu, X } from 'lucide-react'
-import logo from '../assets/react.svg'
 import '../App.css'
 
 const Navbar = ({ theme, toggleTheme }) => {
@@ -13,9 +12,9 @@ const Navbar = ({ theme, toggleTheme }) => {
     { to: '/about', label: 'About Me' },
     { to: '/contact', label: 'Contact' },
   ]
-
+// 
   return (
-    <nav className="flex relative py-14 items-center justify-between px-4 md:px-8  border-b border-border bg-background  z-20">
+    <nav className="flex relative py-6 items-center justify-between px-4 md:px-8  border-b border-border bg-background  z-20">
       {/* Left: Logo */}
       <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition">
         <Link to="/" className="flex items-center gap-2">

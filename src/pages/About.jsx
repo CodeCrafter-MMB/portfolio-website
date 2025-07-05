@@ -1,30 +1,35 @@
 import React from "react";
 import { motion } from "framer-motion";
 import profileImg from "../assets/profile.jpg";
-import { 
-  FileCode2, 
-  Palette, 
-  Code2, 
-  Atom, 
-  Wind, 
-  Box, 
-  GitBranch, 
-  Figma,
-  Flame,
-  Download
-} from "lucide-react";
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiBootstrap,
+  SiGit,
+  SiGithub,
+  SiFirebase,
+  SiFigma,
+} from "react-icons/si";
 
 const About = () => {
   const skills = [
-    { name: "HTML", icon: FileCode2, color: "text-orange-500" },
-    { name: "CSS", icon: Palette, color: "text-blue-500" },
-    { name: "JavaScript", icon: Code2, color: "text-yellow-500" },
-    { name: "React", icon: Atom, color: "text-cyan-500" },
-    { name: "Tailwind", icon: Wind, color: "text-teal-500" },
-    { name: "Bootstrap", icon: Box, color: "text-purple-500" },
-    { name: "Git", icon: GitBranch, color: "text-orange-600" },
-    { name: "Figma", icon: Figma, color: "text-pink-500" },
-    { name: "Firebase", icon: Flame, color: "text-orange-500" },
+    { name: "HTML", icon: SiHtml5, color: "text-orange-600" },
+    { name: "CSS", icon: SiCss3, color: "text-blue-600" },
+    { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
+    { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
+    { name: "React", icon: SiReact, color: "text-cyan-500" },
+    { name: "Next.js", icon: SiNextdotjs, color: "text-black" },
+    { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-teal-500" },
+    { name: "Bootstrap", icon: SiBootstrap, color: "text-purple-600" },
+    { name: "Git", icon: SiGit, color: "text-orange-600" },
+    { name: "GitHub", icon: SiGithub, color: "text-black" },
+    { name: "Firebase", icon: SiFirebase, color: "text-orange-500" },
+    { name: "Figma", icon: SiFigma, color: "text-pink-500" },
   ];
 
   return (
@@ -75,12 +80,31 @@ const About = () => {
               transition={{ delay: 0.6 }}
               className="space-y-6"
             >
-              <h3 className="text-2xl mt-23 font-semibold">Front-End Developer</h3>
+              <h3 className="text-2xl mt-5 font-semibold">
+                Front-End Developer
+              </h3>
               <p className="text-muted-foreground">
-                I am a passionate front-end developer with a strong foundation in modern web technologies. My journey in web development started with a curiosity about how websites work, which led me to dive deep into HTML, CSS, and JavaScript.
+                I’m Muhammad Mubashir, a passionate front-end developer focused
+                on building responsive and accessible web interfaces. My journey
+                into web development began through self-learning and later
+                advanced with hands-on training at SMIT (Saylani Mass IT
+                Training), where I honed my skills in HTML, CSS, JavaScript, and
+                React.js. I’ve built a variety of projects, including a
+                Foodpanda clone, a Netflix clone, and several responsive landing
+                pages. These experiences helped me develop a strong
+                understanding of real-world UI challenges, performance
+                optimization, and writing clean, reusable code.
               </p>
               <p className="text-muted-foreground">
-                I specialize in creating responsive and user-friendly web applications using React.js and modern CSS frameworks. My goal is to build applications that not only look great but also provide an excellent user experience.
+                My current focus is on building dynamic web applications using
+                tools like Tailwind CSS, Git, Firebase, and modern JavaScript
+                libraries. I take pride in transforming ideas into functional
+                and visually appealing products that work seamlessly across
+                devices. I thrive in environments where continuous learning,
+                feedback, and collaboration are encouraged. Currently, I’m
+                actively seeking an internship opportunity where I can apply my
+                skills, grow with a team, and contribute to meaningful digital
+                solutions.
               </p>
               <a
                 href="/resume.pdf"
@@ -99,7 +123,9 @@ const About = () => {
             transition={{ delay: 0.8 }}
             className="mt-16"
           >
-            <h3 className="text-2xl font-semibold text-center mb-8">My Skills</h3>
+            <h3 className="text-2xl font-semibold text-center mb-8">
+              My Skills
+            </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {skills.map((skill, index) => (
                 <motion.div
@@ -109,7 +135,9 @@ const About = () => {
                   transition={{ delay: 0.2 * index }}
                   className="bg-card rounded-xl p-6 text-center border border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105"
                 >
-                  <skill.icon className={`w-8 h-8 mx-auto mb-3 ${skill.color}`} />
+                  <skill.icon
+                    className={`w-8 h-8 mx-auto mb-3 ${skill.color}`}
+                  />
                   <h4 className="font-medium">{skill.name}</h4>
                 </motion.div>
               ))}

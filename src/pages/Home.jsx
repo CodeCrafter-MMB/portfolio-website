@@ -56,7 +56,7 @@ const Home = () => {
             </Link>
           </motion.div>
           {/* Social Links */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
@@ -84,7 +84,7 @@ const Home = () => {
             >
               <Mail className="w-7 h-7" />
             </a>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
           

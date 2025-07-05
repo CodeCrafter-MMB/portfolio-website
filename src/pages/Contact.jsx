@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from 'emailjs-com'; // 👈 add this on top
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
 
 function isValidEmail(email) {
@@ -32,22 +33,62 @@ const Contact = () => {
     return newErrors;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const newErrors = validateForm();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const newErrors = validateForm();
     
-    if (Object.keys(newErrors).length === 0) {
-      setIsSubmitting(true);
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setShowSuccess(true);
-      setFormData({ name: "", email: "", message: "" });
-      setIsSubmitting(false);
-      setTimeout(() => setShowSuccess(false), 3000);
-    } else {
-      setErrors(newErrors);
-    }
-  };
+  //   if (Object.keys(newErrors).length === 0) {
+  //     setIsSubmitting(true);
+  //     // Simulate API call
+  //     await new Promise(resolve => setTimeout(resolve, 1500));
+  //     setShowSuccess(true);
+  //     setFormData({ name: "", email: "", message: "" });
+  //     setIsSubmitting(false);
+  //     setTimeout(() => setShowSuccess(false), 3000);
+  //   } else {
+  //     setErrors(newErrors);
+  //   }
+  // };
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const newErrors = validateForm();
+
+  if (Object.keys(newErrors).length === 0) {
+    setIsSubmitting(true);
+
+    const templateParams = {
+      user_name: formData.name,
+      user_email: formData.email,
+      message: formData.message,
+    };
+
+    emailjs
+      .send(
+        "service_mta6ofi",     // 👈 Replace this
+        "template_qkuurks",    // 👈 Replace this
+        templateParams,
+        "Sqck7gyXmEjHxiAsu"      // 👈 Replace this
+      )
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        setShowSuccess(true);
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setShowSuccess(false), 3000);
+      })
+      .catch((err) => {
+        console.error("FAILED...", err);
+        alert("Failed to send message. Try again.");
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  } else {
+    setErrors(newErrors);
+  }
+};
+
 
   return (
     <motion.section
@@ -188,6 +229,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
 
       {/* Success Message */}
       {showSuccess && (

@@ -8,7 +8,7 @@ const Footer = () => {
         <h2 className="text-3xl font-medium text-card-foreground">Follow me</h2>
         <div className="flex gap-6">
           <a
-            href="#"
+            href="https://mubashir-portfolio-website.netlify.app/"
             className="bg-primary/5 p-4 rounded-lg hover:bg-primary/20 transition-all duration-200 hover:rotate-6 hover:scale-110"
             aria-label="Website"
           >
